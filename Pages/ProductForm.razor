@@ -1,0 +1,30 @@
+@page "/edit-product"
+@page "/edit-product/{_Id}"
+
+<h2>Add a new product</h2>
+<br>
+<br>
+<div class="container">
+    <EditForm Model="@Product" OnValidSubmit="@HandleValidRequest" OnInvalidSubmit="@HandleInvalidRequest"
+        class="form-floating">
+        <div class="form-floating mb-3">
+            <input id="Title" required type="text" @bind-value="@Product.Title" class="form-control"
+                placeholder="Title.." />
+        </div>
+        <div class="form-floating mb-3">
+            <textarea id="Description" class="form-control" required placeholder="Describe your product.."
+                @bind-value="@Product.Description" @bind-value:event="oninput" style="height: 100px;"></textarea>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input id="ImageUrl" type="text" required @bind-value="@Product.ImageUrl" class="form-control" />
+        </div>
+        <div class="form-floating mb-3">
+            <InputNumber id="Price" required @bind-Value="@Product.Price" step="0.01" min="1" class="form-control" />
+        </div>
+        <div class="form-foating">
+            <input id="submit-product-btn" type="submit" class="btn" style="background-color: #0C2363;color: white;"
+                value="Add product" />
+        </div>
+    </EditForm>
+</div>

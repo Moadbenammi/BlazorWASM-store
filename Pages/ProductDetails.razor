@@ -1,0 +1,30 @@
+@page "/product-details/{_Id}"
+
+<div class="container mt-5 mb-5">
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-6 border-end">
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="main_image"> <img src=@Product.ImageUrl id="main_product_image" width="350"> </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 right-side">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3>@Product.Title</h3>
+                    </div>
+                    <div class="mt-2 pr-3 content">
+                        <p>@Product.Description</p>
+                    </div>
+                    <h3>$ @Product.Price</h3>
+                    <div class="d-flex flex-row mt-5 gap-3">
+                        <a id="buy-btn" class="btns btn" href="@($"edit-product/{Product._Id}")"
+                            role="button ">Update</a>
+                        <a class="btns btn" @onclick="DeleteItem" role="button"
+                            style="background-color: #0D2162; color: #fff;">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
